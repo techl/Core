@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0-*",
+  "description": "Techl Class Library",
+  "authors": [ "Bongho Lee" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.ComponentModel.DataAnnotations": "4.0.0.0",
+        "System.configuration": "4.0.0.0"
+      }
+    },
+    "dotnet5.4": {
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.1-beta-23516",
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Threading": "4.0.11-beta-23516",
+        "System.IO": "4.0.11-beta-23516",
+        "System.IO.FileSystem": "4.0.1-beta-23516"
+      }
+    }
+  },
+  "dependencies": {
+    "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+    "System.ComponentModel.Annotations": "4.0.11-beta-23516"
+  }
+}
