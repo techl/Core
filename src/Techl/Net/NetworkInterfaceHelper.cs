@@ -12,7 +12,7 @@ namespace Techl.Net
 {
 #if !DOTNET5_4
     using System.Net.NetworkInformation;
-
+    using System.Net.Sockets;
     public static class NetworkInterfaceHelper
     {
         #region GetBestLocalIPAddress
@@ -61,6 +61,12 @@ namespace Techl.Net
         }
 
         #endregion
+
+        public static IPAddress GetBesLocalIPAddressManaged(string destinationAddress)
+        {
+            UdpClient udp = new UdpClient(destinationAddress, 1);
+            return ((IPEndPoint)udp.Client.LocalEndPoint).Address;
+        }
     }
 #endif
 }
