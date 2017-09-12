@@ -5,10 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Techl
+namespace Techl.IO
 {
     public static class DirectoryHelper
     {
+        /// <summary>
+        /// CurrentDomain's base directory 반환
+        /// </summary>
+        /// <returns></returns>
+        public static string GetBaseDirectory()
+        {
+            return AppDomain.CurrentDomain.BaseDirectory.TrimEnd(Path.DirectorySeparatorChar);
+        }
+
         public static void Copy(string sourceDirName, string destDirName, bool copySubDirs = true)
         {
             // Get the subdirectories for the specified directory.

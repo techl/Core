@@ -15,10 +15,10 @@ namespace Techl.IO
         public string Path { get; private set; }
         private int Capacity = 512;
 
-        [DllImport("kernel32", CharSet = CharSet.Unicode, SetLastError = true, ExactSpelling = true)]
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         static extern int GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, int nSize, string lpFileName);
 
-        [DllImport("kernel32", CharSet = CharSet.Unicode, SetLastError = true, ExactSpelling = true)]
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         static extern long WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
 
         public IniFile(string path = null)
@@ -30,7 +30,11 @@ namespace Techl.IO
         {
             var buffer = new StringBuilder(Capacity);
             GetPrivateProfileString(section, key, null, buffer, Capacity, Path);
-            return ConvertHelper.Convert<T>(buffer.ToString(), defaultValue);
+            var valueString = buffer.ToString();
+            if (valueString.IsNullOrEmpty())
+                return defaultValue;
+            else
+                return ConvertHelper.Convert<T>(valueString, defaultValue);
         }
 
         public void Write<T>(string section, string key, T value)
