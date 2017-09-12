@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>Techl</Title>
+    <Version>1.0.2</Version>
+    <TargetFramework>net451</TargetFramework>
+    <Authors>Bongho Lee</Authors>
+    <Company>Techl.com</Company>
+    <Description>Techl Core Library</Description>
+    <PackageProjectUrl>https://github.com/techl/Core</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/techl/Core/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <Copyright>Copyright 2017</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+
+</Project>
