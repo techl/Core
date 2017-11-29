@@ -1,5 +1,4 @@
-﻿// working
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +10,9 @@ using Techl.Reflection;
 
 namespace Techl.IO
 {
+    /// <summary>
+    /// Handle initialization file(*.ini)
+    /// </summary>
     public class IniFile
     {
         public string Path { get; private set; }

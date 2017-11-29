@@ -48,11 +48,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IniFileTest.cs" />
+    <Compile Include="IO\IniFileTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Init.ini" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
