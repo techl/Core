@@ -1,5 +1,4 @@
-﻿// Copyright (c) techl.com All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+﻿// working
 #if DOTNET5_4
 using Microsoft.Extensions.PlatformAbstractions;
 #endif
