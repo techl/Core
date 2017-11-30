@@ -8,7 +8,7 @@
     <Company>Techl.com</Company>
     <Description>Techl Core Library</Description>
     <PackageProjectUrl>https://github.com/techl/Core</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/techl/Core/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/techl/Core/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>Copyright 2017</Copyright>
   </PropertyGroup>
 
