@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Title>Techl</Title>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <TargetFramework>net451</TargetFramework>
     <Authors>Bongho Lee</Authors>
     <Company>Techl.com</Company>
@@ -15,6 +15,7 @@
   <ItemGroup>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
 </Project>

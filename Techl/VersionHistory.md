@@ -1,5 +1,8 @@
 ﻿# Version History
 
+v1.0.4
+    Add ControlBindingHelper
+
 v1.0.3
     IniFile bug fix
 
