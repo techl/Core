@@ -97,5 +97,13 @@ namespace Techl.Reflection
             var field = GetField(owner.GetType(), fieldName);
             field.SetValue(owner, value);
         }
+
+        public static object GetDefaultValue(this Type type)
+        {
+            if (type.IsValueType)
+                return Activator.CreateInstance(type);
+            else
+                return null;
+        }
     }
 }
