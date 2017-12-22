@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,8 @@ namespace Techl.Winforms
                 {
                     if (errorProvider == null)
                         MessageBox.Show(e.ErrorText);
+
+                    Rollback((sender as Binding).Control, propertyName);
                 }
 
                 errorProvider?.SetError(control, e.ErrorText);
@@ -39,6 +43,11 @@ namespace Techl.Winforms
             };
 
             return binding;
+        }
+
+        public static Binding AddTextDataBinding(this Control control, object dataSource, string dataMember, ErrorProvider errorProvider = null)
+        {
+            return AddDataBinding(control, nameof(Control.Text), dataSource, dataMember, errorProvider);
         }
 
         private static void Rollback(Control control, string propertyName)
@@ -108,6 +117,33 @@ namespace Techl.Winforms
             var list = EnumHelper.GetValues<TEnum>().ToDictionary(v => (v as Enum).GetDescription()).ToArray();
 
             return AddDataBinding(comboBox, list, "Key", "Value", dataSource, dataSourceMember, errorProvider);
+        }
+
+        public static Binding AddCurrencyFormatting(this Binding binding, string format = "C")
+        {
+            if (binding.Control is TextBox textBox)
+                textBox.SetNumberInput();
+
+            binding.Parse += (sender, e) =>
+            {
+                if (e.DesiredType == typeof(decimal))
+                {
+                    if (decimal.TryParse(e.Value.ToString(), NumberStyles.Currency, null, out decimal value))
+                        e.Value = value;
+                    else
+                        e.Value = default(decimal);
+                }
+            };
+
+            binding.Format += (sender, e) =>
+            {
+                if (e.DesiredType == typeof(string))
+                {
+                    e.Value = ((decimal)e.Value).ToString(format);
+                }
+            };
+
+            return binding;
         }
     }
 }
