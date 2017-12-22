@@ -1,5 +1,11 @@
 ﻿# Version History
 
+v1.0.5
+    Add ControlBindingHelper.AddTextDataBinding
+    Add ControlBindingHelper.AddCurrencyFormatting
+    Add TextBoxHelper
+    Add ObjectHelper
+
 v1.0.4
     Add ControlBindingHelper
 
