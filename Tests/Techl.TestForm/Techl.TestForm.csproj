@@ -45,23 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlBindingHelperTestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ControlBindingHelperTestForm.Designer.cs">
-      <DependentUpon>ControlBindingHelperTestForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextBoxHelperTestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TextBoxHelperTestForm.Designer.cs">
-      <DependentUpon>TextBoxHelperTestForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="ControlBindingHelperTestForm.resx">
-      <DependentUpon>ControlBindingHelperTestForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -71,9 +56,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TextBoxHelperTestForm.resx">
-      <DependentUpon>TextBoxHelperTestForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -17,7 +17,7 @@ namespace Techl.TestForm
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new ControlBindingHelperTestForm());
-            Application.Run(new TextBoxHelperTestForm());
+            //Application.Run(new TextBoxHelperTestForm());
         }
     }
 }
