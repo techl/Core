@@ -1,5 +1,8 @@
 ﻿# Version History
 
+v1.0.6
+    Support nulllable type in ControlBindingHelper.AddCurrencyFormatting
+
 v1.0.5
     Add ControlBindingHelper.AddTextDataBinding
     Add ControlBindingHelper.AddCurrencyFormatting

@@ -139,7 +139,8 @@ namespace Techl.Winforms
             {
                 if (e.DesiredType == typeof(string))
                 {
-                    e.Value = ((decimal)e.Value).ToString(format);
+                    if (e.Value != null)
+                        e.Value = ((decimal)e.Value).ToString(format);
                 }
             };
 
