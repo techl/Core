@@ -1,5 +1,9 @@
 ﻿# Version History
 
+v1.0.8
+    Add PerformanceCountHelper
+    Add ProcessHelper
+
 v1.0.7
     Remove ControlBindingHelper
     Remove TextBoxHelper
