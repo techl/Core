@@ -22,13 +22,13 @@ namespace Techl.Diagnostics
             return Path.Combine(BaseDirectory, category + "@" + DateTime.Now.ToString("yyyyMMdd") + ".log");
         }
 
-        public static void Write(string category, string format, params Object[] args)
+        public static void Write(string category, string message)
         {
             try
             {
                 string filename = GetFileName(category);
 
-                string content = String.Format("[{0}][{1}] {2}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), category, String.Format(format, args));
+                string content = $"[{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")}][{category}] {message}";
 
                 if (!File.Exists(filename))
                 {
@@ -47,7 +47,10 @@ namespace Techl.Diagnostics
 
                 Debug.WriteLine(content);
             }
-            catch (Exception) { }
+            catch (Exception ex)
+            {
+                Trace.WriteLine($"Log.Write Exception : {ex}");
+            }
         }
     }
 }

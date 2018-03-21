@@ -1,5 +1,8 @@
 ﻿# Version History
 
+v1.0.9
+    In Log.Write, if error occurs, trace message will be displayed.    
+
 v1.0.8
     Add PerformanceCountHelper
     Add ProcessHelper

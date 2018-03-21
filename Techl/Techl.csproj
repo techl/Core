@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Title>Techl</Title>
-    <Version>1.0.8</Version>
+    <Version>1.0.9</Version>
     <TargetFramework>net451</TargetFramework>
     <Authors>Bongho Lee</Authors>
     <Company>Techl.com</Company>
