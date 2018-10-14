@@ -59,5 +59,22 @@ D=6
             value4 = File.Read("Section2", "C", 0f);
             Assert.IsTrue(value4 == 0);
         }
+
+        [TestMethod]
+        public void ReadSectionTest()
+        {
+            var sections = File.ReadSections();
+            Assert.IsTrue(sections.Length == 2);
+
+            var values = File.ReadSection("Section2");
+            Assert.IsTrue(values.Count == 2);
+        }
+
+        [TestMethod]
+        public void ReadKeysTest()
+        {
+            var keys = File.ReadKeys("Section1");
+            Assert.IsTrue(keys.Length == 2);
+        }
     }
 }

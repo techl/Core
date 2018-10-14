@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Title>Techl</Title>
-    <Version>1.0.9</Version>
+    <Version>1.0.10</Version>
     <TargetFramework>net451</TargetFramework>
     <Authors>Bongho Lee</Authors>
     <Company>Techl.com</Company>

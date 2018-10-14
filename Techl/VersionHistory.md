@@ -1,5 +1,8 @@
 ﻿# Version History
 
+v1.0.10
+    Add IniFile.ReadSection, ReadSections, ReadKeys
+
 v1.0.9
     In Log.Write, if error occurs, trace message will be displayed.    
 

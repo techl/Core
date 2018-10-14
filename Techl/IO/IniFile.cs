@@ -22,7 +22,13 @@ namespace Techl.IO
         static extern int GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, int nSize, string lpFileName);
 
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        static extern int GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, char[] lpReturnedString, int nSize, string lpFileName);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         static extern long WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern int GetPrivateProfileSection(string section, char[] keyValue, int size, string filePath);
 
         public IniFile(string path = null)
         {
@@ -59,13 +65,13 @@ namespace Techl.IO
         {
             while (true)
             {
-                var buffer = new StringBuilder(Capacity);
+                var buffer = new char[Capacity];
                 var size = GetPrivateProfileString(null, null, null, buffer, Capacity, Path);
                 if (size == 0)
                     return null;
 
-                if (size < buffer.Capacity - 2)
-                    return buffer.ToString().Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                if (size < buffer.Length - 2)
+                    return new string(buffer, 0, size).Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
 
                 Capacity *= 2;
             }
@@ -76,7 +82,7 @@ namespace Techl.IO
             // first line will not recognize if ini file is saved in UTF-8 with BOM 
             while (true)
             {
-                var buffer = new StringBuilder(Capacity);
+                var buffer = new char[Capacity];
                 int size = GetPrivateProfileString(section, null, "", buffer, Capacity, Path);
 
                 if (size == 0)
@@ -84,11 +90,33 @@ namespace Techl.IO
 
                 if (size < Capacity - 2)
                 {
-                    string[] keys = buffer.ToString().Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] keys = new string(buffer, 0, size).Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
                     return keys;
                 }
 
                 Capacity *= 2;
+            }
+        }
+
+        public Dictionary<string, string> ReadSection(string section)
+        {
+            while (true)
+            {
+                var buffer = new char[Capacity];
+                int size = GetPrivateProfileSection(section, buffer, Capacity, Path);
+
+                if (size == 0)
+                {
+                    return null;
+                }
+
+                if (size < Capacity - 2)
+                {
+                    var keyValues = new string(buffer, 0, size).Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Split('='));
+                    return keyValues.ToDictionary(s => s[0], s => s[1]);
+                }
+
+                Capacity = Capacity * 2;
             }
         }
     }
