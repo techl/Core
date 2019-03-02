@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="IO\IniFileTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StorageHelperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
