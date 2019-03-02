@@ -1,5 +1,8 @@
 ﻿# Version History
 
+v2.0.0
+    Migrate to .net standard 2.0
+
 v1.0.10
     Add IniFile.ReadSection, ReadSections, ReadKeys
 

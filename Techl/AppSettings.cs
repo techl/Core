@@ -1,15 +1,23 @@
-﻿// working
+﻿using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Techl
 {
-#if !DOTNET5_4
     public class AppSettings
     {
+        private static IConfiguration Configuration;
+
+        public static void Initialize(IConfiguration configuration = null)
+        {
+            if (configuration == null)
+            {
+                configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true).Build();
+            }
+
+            Configuration = configuration;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -19,12 +27,19 @@ namespace Techl
         /// <returns></returns>
         public static T Get<T>(string key, T defaultValue)
         {
-            var value = System.Configuration.ConfigurationManager.AppSettings.Get(key);
-            if (value == null)
+            if (Configuration == null)
                 return defaultValue;
             else
-                return (T)Convert.ChangeType(value, typeof(T));
+            {
+                try
+                {
+                    return (T)Convert.ChangeType(Configuration[key], typeof(T));
+                }
+                catch
+                {
+                    return defaultValue;
+                }
+            }
         }
     }
-#endif
 }

@@ -20,7 +20,6 @@ namespace Techl
             return attribute != null ? attribute.Name : value.ToString();
         }
 
-#if !DOTNET5_4
         public static string GetDescription(this Enum value)
         {
             FieldInfo info = value.GetType().GetField(value.ToString());
@@ -37,7 +36,6 @@ namespace Techl
 
             return attribute != null ? attribute.Category : value.ToString();
         }
-#endif
 
         public static TEnum Parse<TEnum>(string value) where TEnum : struct, IConvertible
         {
@@ -73,7 +71,6 @@ namespace Techl
             return (TEnum)ParseDisplayName(typeof(TEnum), displayName);
         }
 
-#if !DOTNET5_4
         public static object ParseDescription(Type type, string description)
         {
             AssertEnum(type);
@@ -134,7 +131,6 @@ namespace Techl
                 return (TEnum)Enum.GetValues(typeof(TEnum)).GetValue(0);
             }
         }
-#endif
 
         public static IEnumerable<string> GetNames<TEnum>() where TEnum : struct, IConvertible
         {
@@ -172,10 +168,8 @@ namespace Techl
 
         public static void AssertEnum(Type type)
         {
-#if !DOTNET5_4
             if (!type.IsEnum)
                 throw new ArgumentException(String.Format("Type '{0}' is not an enum."), type.Name);
-#endif
         }
     }
 }

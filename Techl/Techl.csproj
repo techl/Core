@@ -1,21 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <Title>Techl</Title>
-    <Version>1.0.10</Version>
-    <TargetFramework>net451</TargetFramework>
+    <Version>2.0.0</Version>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Bongho Lee</Authors>
     <Company>Techl.com</Company>
     <Description>Techl Core Library</Description>
     <PackageProjectUrl>https://github.com/techl/Core</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/techl/Core/blob/master/LICENSE</PackageLicenseUrl>
-    <Copyright>Copyright 2018</Copyright>
+    <Copyright>Copyright 2019</Copyright>
   </PropertyGroup>
-
   <ItemGroup>
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Windows.Forms" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="4.5.0" />
   </ItemGroup>
-
 </Project>

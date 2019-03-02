@@ -9,7 +9,6 @@ using System.Text;
 
 namespace Techl.Net
 {
-#if !DOTNET5_4
     using System.Net.NetworkInformation;
     using System.Net.Sockets;
     public static class NetworkInterfaceHelper
@@ -67,5 +66,4 @@ namespace Techl.Net
             return ((IPEndPoint)udp.Client.LocalEndPoint).Address;
         }
     }
-#endif
 }
