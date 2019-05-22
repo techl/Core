@@ -1,5 +1,8 @@
 ﻿# Version History
 
+v2.0.1
+    Add VersionHelper
+
 v2.0.0
     Migrate to .net standard 2.0
 
